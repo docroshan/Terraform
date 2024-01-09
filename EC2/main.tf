@@ -1,3 +1,4 @@
+# Create an EC2 instance with custom parameters(tested)
 terraform {
   required_providers {
     aws = {
