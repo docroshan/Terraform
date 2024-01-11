@@ -9,15 +9,15 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-north-1"
+  region = var.region
 }
 
-resource "aws_instance" "ec2_example" {
-  ami           = "ami-0014ce3e52359afbd" # Ubuntu 20.04 LTS // eu-north-1
-  instance_type = "t3.micro"
-  key_name      = "pkey-aws"
-  security_groups = ["launch-wizard-1"]  # Use a list for security groups
+resource "aws_instance" "EC2-instance" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
+  key_name      = var.passkey
+  security_groups = [var.security_group[0]]
   tags = {
-    Name = "Terraform_Demo"
+    Name = var.instance_name
   }
 }
