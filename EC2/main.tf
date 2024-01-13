@@ -13,9 +13,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "EC2-instance" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  key_name      = var.passkey
+  ami             = var.ami_id
+  instance_type   = var.instance_type
+  key_name        = var.passkey
   security_groups = [var.security_group[0]]
   tags = {
     Name = var.instance_name
